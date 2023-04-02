@@ -1,0 +1,12 @@
+.DS_Store
+tmp.*
+
+# Go
+bin/
+report.xml
+
+# JetBrains
+.idea/*
+!.idea/vcs.xml
+!.idea/protobuf.xml
+!.idea/externalDependencies.xml
