@@ -6,7 +6,7 @@ require (
 	github.com/caarlos0/env/v7 v7.1.0
 	github.com/itbasis/go-core-utils v0.0.0-20230402214723-b77cc3c63660
 	github.com/itbasis/go-docker-utils v0.0.0-20230402215244-503e77724322
-	github.com/rs/zerolog v1.29.0
+	github.com/rs/zerolog v1.29.1
 	github.com/stretchr/testify v1.8.2
 	google.golang.org/grpc v1.54.0
 )
