@@ -8,7 +8,7 @@ require (
 	github.com/itbasis/go-docker-utils v0.0.1
 	github.com/rs/zerolog v1.29.1
 	github.com/stretchr/testify v1.8.2
-	google.golang.org/grpc v1.54.0
+	google.golang.org/grpc v1.55.0
 )
 
 require (
