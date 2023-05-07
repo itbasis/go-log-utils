@@ -1,6 +1,7 @@
 package log
 
 import (
+	"io"
 	"os"
 	"time"
 
@@ -12,7 +13,7 @@ import (
 
 func ConfigureDefaultContextLogger(forcePlainText bool) *zerolog.Logger {
 	if forcePlainText {
-		log.Logger = log.Output(
+		return ConfigureDefaultContextLoggerCustomWriter(
 			zerolog.ConsoleWriter{
 				Out:        os.Stdout,
 				TimeFormat: time.RFC3339,
@@ -20,7 +21,12 @@ func ConfigureDefaultContextLogger(forcePlainText bool) *zerolog.Logger {
 		)
 	}
 
-	log.Logger = log.With().
+	return ConfigureDefaultContextLoggerCustomWriter(os.Stderr)
+}
+
+func ConfigureDefaultContextLoggerCustomWriter(w io.Writer) *zerolog.Logger {
+	log.Logger = log.Output(w).
+		With().
 		Caller().
 		Logger()
 	zerolog.DefaultContextLogger = &log.Logger
