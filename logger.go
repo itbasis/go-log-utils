@@ -32,7 +32,7 @@ func ConfigureRootLogger(serviceName string) (*zerolog.Logger, error) {
 	ConfigureDefaultContextLogger(false)
 
 	config := Config{}
-	if err := itbasisCoreUtils.ReadEnvConfig(&config); err != nil {
+	if err := itbasisCoreUtils.ReadEnvConfig(&config, nil); err != nil {
 		return nil, err
 	}
 
