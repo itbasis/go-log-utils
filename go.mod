@@ -7,7 +7,7 @@ require (
 	github.com/itbasis/go-core-utils v0.1.0
 	github.com/itbasis/go-docker-utils v0.0.1
 	github.com/rs/zerolog v1.29.1
-	github.com/stretchr/testify v1.8.2
+	github.com/stretchr/testify v1.8.3
 	google.golang.org/grpc v1.55.0
 )
 
