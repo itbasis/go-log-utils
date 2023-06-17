@@ -1,60 +1,53 @@
 package log
 
 import (
-	"io"
-	"os"
-	"time"
+	"context"
+	"log"
 
-	itbasisCoreUtils "github.com/itbasis/go-core-utils"
+	itbasisCoreUtils "github.com/itbasis/go-core-utils/v2"
 	itbasisDockerUtils "github.com/itbasis/go-docker-utils"
-	"github.com/rs/zerolog"
-	"github.com/rs/zerolog/log"
+	"github.com/juju/zaputil/zapctx"
+	"go.uber.org/zap"
 )
 
-func ConfigureDefaultContextLogger(forcePlainText bool) *zerolog.Logger {
+func ConfigureDefaultContextLogger(forcePlainText bool, zapConfig zap.Config) *zap.Logger {
 	if forcePlainText {
-		return ConfigureDefaultContextLoggerCustomWriter(
-			zerolog.ConsoleWriter{
-				Out:        os.Stdout,
-				TimeFormat: time.RFC3339,
-			},
-		)
+		zapConfig.Encoding = "console"
 	}
 
-	return ConfigureDefaultContextLoggerCustomWriter(os.Stderr)
+	return ConfigureDefaultContextLoggerCustomConfig(zapConfig)
 }
 
-func ConfigureDefaultContextLoggerCustomWriter(w io.Writer) *zerolog.Logger {
-	log.Logger = log.Output(w).
-		With().
-		Caller().
-		Logger()
-	zerolog.DefaultContextLogger = &log.Logger
+func ConfigureDefaultContextLoggerCustomConfig(config zap.Config) *zap.Logger {
+	logger, err := config.Build(zap.AddCaller())
+	if err != nil {
+		log.Panic(err)
+	}
 
-	return zerolog.DefaultContextLogger
+	zapctx.Default = logger
+
+	return zapctx.Default
 }
 
-func ConfigureRootLogger(serviceName string) (*zerolog.Logger, error) {
-	ConfigureDefaultContextLogger(false)
+func ConfigureRootLogger(ctx context.Context, serviceName string, zapConfig zap.Config) (*zap.Logger, error) {
+	ConfigureDefaultContextLogger(false, zapConfig)
 
 	config := Config{}
-	if err := itbasisCoreUtils.ReadEnvConfig(&config, nil); err != nil {
+	if err := itbasisCoreUtils.ReadEnvConfig(ctx, &config, nil); err != nil {
 		return nil, err
 	}
 
-	return ConfigureRootLoggerWithConfig(config, serviceName)
+	return ConfigureRootLoggerWithConfig(serviceName, zapConfig, config)
 }
 
-func ConfigureRootLoggerWithConfig(config Config, serviceName string) (*zerolog.Logger, error) {
-	ConfigureDefaultContextLogger(!(config.LogForcePlainText || itbasisDockerUtils.IsRunningInDockerContainer()))
-
-	zerolog.SetGlobalLevel(config.LogRootLevel.Level)
-
-	zerolog.DefaultContextLogger.UpdateContext(
-		func(c zerolog.Context) zerolog.Context {
-			return c.Str(MdcServiceName, serviceName)
-		},
+func ConfigureRootLoggerWithConfig(serviceName string, zapConfig zap.Config, config Config) (*zap.Logger, error) {
+	ConfigureDefaultContextLogger(
+		!(config.LogForcePlainText || itbasisDockerUtils.IsRunningInDockerContainer()),
+		zapConfig,
 	)
 
-	return zerolog.DefaultContextLogger, nil
+	zapctx.LogLevel.SetLevel(config.LogRootLevel)
+	zapctx.Default = zapctx.Default.With(zap.String(MdcServiceName, serviceName))
+
+	return zapctx.Default, nil
 }
