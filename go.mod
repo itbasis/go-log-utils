@@ -7,7 +7,7 @@ require (
 	github.com/itbasis/go-docker-utils v0.0.1
 	github.com/juju/zaputil v0.0.0-20190326175239-ef53049637ac
 	go.uber.org/zap v1.24.0
-	google.golang.org/grpc v1.56.0
+	google.golang.org/grpc v1.56.1
 )
 
 require (
