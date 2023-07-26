@@ -3,7 +3,7 @@ module github.com/itbasis/go-log-utils/v2
 go 1.20
 
 require (
-	github.com/itbasis/go-core-utils/v2 v2.0.0
+	github.com/itbasis/go-core-utils/v2 v2.1.0
 	github.com/itbasis/go-docker-utils v0.0.1
 	github.com/juju/zaputil v0.0.0-20190326175239-ef53049637ac
 	go.uber.org/zap v1.24.0
@@ -11,7 +11,7 @@ require (
 )
 
 require (
-	github.com/caarlos0/env/v8 v8.0.0 // indirect
+	github.com/caarlos0/env/v9 v9.0.0 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/rogpeppe/go-internal v1.10.0 // indirect
