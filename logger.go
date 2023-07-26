@@ -5,7 +5,7 @@ import (
 	"log"
 
 	itbasisCoreUtils "github.com/itbasis/go-core-utils/v2"
-	itbasisDockerUtils "github.com/itbasis/go-docker-utils"
+	itbasisDockerUtils "github.com/itbasis/go-docker-utils/v2"
 	"github.com/juju/zaputil/zapctx"
 	"go.uber.org/zap"
 )
