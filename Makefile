@@ -4,6 +4,8 @@ go-dependencies:
 	# https://github.com/securego/gosec
 	go install github.com/securego/gosec/v2/cmd/gosec@latest
 	#
+	asdf reshim golang || :
+	#
 	go get -u -t -v ./... || :
 
 go-all: go-dependencies
