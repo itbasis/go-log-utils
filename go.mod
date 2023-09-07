@@ -7,7 +7,7 @@ require (
 	github.com/itbasis/go-docker-utils/v2 v2.1.0
 	github.com/juju/zaputil v0.0.0-20190326175239-ef53049637ac
 	go.uber.org/zap v1.25.0
-	google.golang.org/grpc v1.57.0
+	google.golang.org/grpc v1.58.0
 )
 
 replace github.com/benbjohnson/clock v1.3.5 => github.com/itbasis/go-clock v1.4.0
