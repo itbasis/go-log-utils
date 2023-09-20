@@ -9,12 +9,17 @@ import (
 	"google.golang.org/grpc"
 )
 
-func GrpcLogUnaryServerInterceptor() grpc.UnaryServerInterceptor {
+func LogUnaryServerInterceptor() grpc.UnaryServerInterceptor {
 	return func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {
-		logger := zapctx.Default
-		newCtx := zapctx.WithLogger(ctx, logger)
+		logger := zapctx.Logger(ctx)
 
 		logger.Debug(fmt.Sprintf(logUtils.ReceiveRequest, req))
+
+		if logger == zapctx.Default {
+			return handler(ctx, req)
+		}
+
+		newCtx := zapctx.WithLogger(ctx, logger)
 
 		return handler(newCtx, req)
 	}

@@ -39,7 +39,6 @@ linters:
     - prealloc
     - promlinter
     - revive
-    - structcheck
     - wastedassign
     - tagliatelle
     - tenv
@@ -62,3 +61,6 @@ linters-settings:
     ignore-names:
       - db
       - err
+  gomoddirectives:
+    replace-allow-list:
+      - github.com/benbjohnson/clock

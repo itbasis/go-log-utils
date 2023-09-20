@@ -4,6 +4,8 @@ import (
 	"context"
 	"log"
 
+	"github.com/pkg/errors"
+
 	itbasisCoreUtils "github.com/itbasis/go-core-utils/v2"
 	itbasisDockerUtils "github.com/itbasis/go-docker-utils/v2"
 	"github.com/juju/zaputil/zapctx"
@@ -34,7 +36,7 @@ func ConfigureRootLogger(ctx context.Context, serviceName string, zapConfig zap.
 
 	config := Config{}
 	if err := itbasisCoreUtils.ReadEnvConfig(ctx, &config, nil); err != nil {
-		return nil, err
+		return nil, errors.Wrap(err, "error reading environment configuration")
 	}
 
 	return ConfigureRootLoggerWithConfig(serviceName, zapConfig, config)
