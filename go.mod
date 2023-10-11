@@ -8,7 +8,7 @@ require (
 	github.com/juju/zaputil v0.0.0-20190326175239-ef53049637ac
 	github.com/pkg/errors v0.9.1
 	go.uber.org/zap v1.26.0
-	google.golang.org/grpc v1.58.2
+	google.golang.org/grpc v1.58.3
 )
 
 replace github.com/benbjohnson/clock v1.3.5 => github.com/itbasis/go-clock v1.5.0
