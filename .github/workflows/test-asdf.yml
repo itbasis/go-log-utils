@@ -14,5 +14,16 @@ jobs:
       - name: Install asdf & tools
         uses: asdf-vm/actions/install@v3
 
-      - name: Tests
-        run: go test -v ./...
+      - run: make go-all-tests
+
+#      - name: Test Summary
+#        uses: test-summary/action@v2
+#        with:
+#          paths: "junit-report.xml"
+#        if: always()
+#
+#      - name: Upload coverage reports to Codecov
+#        uses: codecov/codecov-action@v3
+#        with:
+#          token: ${{ secrets.CODECOV_TOKEN }}
+#          files: ./.coverage.out
