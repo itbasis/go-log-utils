@@ -6,7 +6,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	itbasisCoreUtils "github.com/itbasis/go-core-utils/v2"
+	itbasisCoreUtilsEnvReader "github.com/itbasis/go-core-utils/v2/env-reader"
 	itbasisDockerUtils "github.com/itbasis/go-docker-utils/v2"
 	"github.com/juju/zaputil/zapctx"
 	"go.uber.org/zap"
@@ -35,7 +35,7 @@ func ConfigureRootLogger(ctx context.Context, serviceName string, zapConfig zap.
 	ConfigureDefaultContextLogger(false, zapConfig)
 
 	config := Config{}
-	if err := itbasisCoreUtils.ReadEnvConfig(ctx, &config, nil); err != nil {
+	if err := itbasisCoreUtilsEnvReader.ReadEnvConfig(ctx, &config, nil); err != nil {
 		return nil, errors.Wrap(err, "error reading environment configuration")
 	}
 
