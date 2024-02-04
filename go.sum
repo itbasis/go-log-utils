@@ -11,10 +11,10 @@ github.com/golang/protobuf v1.5.3/go.mod h1:XVQd3VNwM+JqD3oG2Ue2ip4fOMUkwXdXDdiu
 github.com/google/go-cmp v0.2.1-0.20190312032427-6f77996f0c42/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=
 github.com/google/go-cmp v0.5.5/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
-github.com/itbasis/go-core-utils/v2 v2.3.1 h1:vm95BO9up2778n5J5YmHiXvitLoNVqWHRXSZL0onkGE=
-github.com/itbasis/go-core-utils/v2 v2.3.1/go.mod h1:bU0wFC9ZygW0TFAWNJhU2wI51Ntlw9qFOSuthyKRAKE=
-github.com/itbasis/go-docker-utils/v2 v2.1.3 h1:dFnL2bhGsf7sVXIkSnSj1jZgvLIptuFnkxexz4NTfOE=
-github.com/itbasis/go-docker-utils/v2 v2.1.3/go.mod h1:XdO8NKzuM51R4YBM2tuw8qSnRX3y9xjx9VMGB565grk=
+github.com/itbasis/go-core-utils/v2 v2.3.2 h1:IPQcgg2yB55GE3HSiA7dYX4AUE34Z+W7z1iHJsWM6Ko=
+github.com/itbasis/go-core-utils/v2 v2.3.2/go.mod h1:bU0wFC9ZygW0TFAWNJhU2wI51Ntlw9qFOSuthyKRAKE=
+github.com/itbasis/go-docker-utils/v2 v2.1.4 h1:N8N288xcApNh4GbhWONrYVKZN36XhdLIyqF7WqxlLoI=
+github.com/itbasis/go-docker-utils/v2 v2.1.4/go.mod h1:XdO8NKzuM51R4YBM2tuw8qSnRX3y9xjx9VMGB565grk=
 github.com/juju/loggo v0.0.0-20190212223446-d976af380377/go.mod h1:vgyd7OREkbtVEN/8IXZe5Ooef3LQePvuBm9UWj6ZL8U=
 github.com/juju/zaputil v0.0.0-20190326175239-ef53049637ac h1:mIYfqlPcFmuFpKMMMmq+pu7okWEWShiyW2w6/+2qDaY=
 github.com/juju/zaputil v0.0.0-20190326175239-ef53049637ac/go.mod h1:yGXwCw1C3O7X2kkzB5gky65S4I5a0h4Ylic4xVo5D78=
