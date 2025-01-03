@@ -5,3 +5,6 @@ image:https://img.shields.io/github/go-mod/go-version/itbasis/go-log-utils[GitHu
 image:https://img.shields.io/badge/godoc-reference-blue.svg[link=https://pkg.go.dev/github.com/itbasis/go-log-utils]
 image:https://img.shields.io/github/v/release/itbasis/go-log-utils[GitHub Release]
 https://goreportcard.com/report/github.com/itbasis/go-log-utils[image:https://goreportcard.com/badge/github.com/itbasis/go-log-utils[Go Report Card]]
+
+
+IMPORTANT: The project has moved to another repository: https://github.com/itbasis/go-tools
